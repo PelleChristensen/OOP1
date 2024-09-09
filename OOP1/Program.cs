@@ -4,9 +4,93 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Who goes there?"); 
-            string _name = Console.ReadLine();
-            Console.WriteLine($"Hello, {_name}. This is the main branch. Nothing much should be here.");
+            //Dette er branch for loops og de eksempler som dertil kommer
+
+            //Whack that hero
+            int health = 20;
+            int enemydamage = 5;
+            int armor = 8;
+
+
+            #region while løkke
+            //Der bliver angrebet hvis betingelsen er opfyldt
+            while (health > 10)
+            {
+                int damage = enemydamage - armor;
+                if (damage > 0)
+                {
+                    //register damage and make feedback to user
+                    health -= damage;
+                    Console.WriteLine("***************************************************");
+                    Console.WriteLine("*  The enemy causes " + damage + "damage to hero  *");
+                    Console.WriteLine("***************************************************");
+                }
+                else
+                {
+                    Console.WriteLine("***************************************************");
+                    Console.WriteLine("*       The enemy causes no damage on hero        *");
+                    Console.WriteLine("***************************************************");
+                }
+            }
+
+            #endregion
+
+            #region do-while løkke
+            //der bliver angrebet først og tjekket efter betingelse bagefter. 
+            do
+            {
+                int damage = enemydamage - armor;
+
+            } while (health > 0);
+
+            #endregion
+
+            #region for-loop 
+
+            int attacks = 40;
+            int totaldamage = 0;
+
+            for (int i = 0; i <= attacks; i++)
+            {
+                totaldamage = armor - enemydamage;
+            }
+
+            Console.WriteLine("***************************************************");
+            Console.WriteLine("*The hero receives " + totaldamage + " damage *");
+            Console.WriteLine("***************************************************");
+            #endregion
+
+            #region guess a number
+            //minispil "gæt et tal"
+            Random random = new Random();
+            int answer = random.Next(0, 10); //svaret bliver et tal imellem 0 og 10; 
+            bool gamecomplete = false;
+            do
+            {
+                Console.WriteLine("Sæt på et tal imellem 0 og 10");
+                string response = Console.ReadLine();
+                int guess;
+                bool isInteger = Int32.TryParse(response, out guess);
+
+                if (isInteger)
+                {
+                    if (guess == answer)
+                    {
+                        Console.WriteLine("Dit svar er korrekt! du har vundet!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Svaret er forkert! Prøv igen!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ugyldigt svar. Prøv igen");
+                }
+            } while (!gamecomplete);
+
+            #endregion
+
         }
     }
 }
