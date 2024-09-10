@@ -7,10 +7,32 @@
             //Dette er branch for loops og de eksempler som dertil kommer
 
             //Whack that hero
-            int health = 20;
-            int enemydamage = 5;
+            int health = 55;
+            int enemydamage = 8;
             int armor = 8;
+            int attacks = 12;
 
+            for (int i = 0; i <= attacks; i++)
+            {
+                int damage = enemydamage – i;
+                if(damage <= 0)
+                {
+                    Console.WriteLine("Fjenden er løbet tør for energi");
+                    break;
+
+                }
+                health -= damage;
+
+            }
+
+            if (health < 20)
+            {
+                //Enemy surrenders, make win stuff
+            }
+            else
+            {
+                Console.Write(“Hah! Puny hero, hits like a bunny!”); //implement game over
+            }
 
             #region while løkke
             //Der bliver angrebet hvis betingelsen er opfyldt
