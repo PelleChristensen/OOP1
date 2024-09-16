@@ -4,6 +4,11 @@
     {
         static void Main(string[] args)
         {
+            int[] ugedage = ​{ 7, 5, 3, 3, 5, 1, 6 }; int kaffetotal = 0;
+
+            //array.Length angiver antallet af arrayelementerfor(int i = 0; i < ugedage.Length; i++)​
+            {​	kaffetotal += ugedage[i]; ​
+}
             //Dette er branch for loops og de eksempler som dertil kommer
             #region startkode
             //Whack that hero
@@ -115,7 +120,15 @@
 
             #endregion
 
+            #region dicefunction
+            //Returnér en integer med en tilfældig værdi
+            int RollDice()
+            {
+                Random r = new Random();
+                return r.Next(1, 6);
+            }
 
+            #region
         }
     }
 }
