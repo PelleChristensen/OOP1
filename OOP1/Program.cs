@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 
 namespace OOP1
 {
@@ -22,8 +23,8 @@ namespace OOP1
             Debug.WriteLine($"Du drak {gennemsnit} kopper kaffe per dag");
             #endregion
 
-
             #region minefield
+            
             int length = 5;
             int height = 5;
             float[,] minefield = new float[5, 5];
@@ -38,8 +39,11 @@ namespace OOP1
                 }
             }
 
-            string[] lines = new string[height];
-
+            string[] lines = new string[height +2];
+            string topline = "*******";
+            int nextpos = 0; 
+            lines[nextpos++] = topline;
+            
             for (var x = 0; x < length; x++)
             {
                 string line = "*"; 
@@ -50,12 +54,11 @@ namespace OOP1
                     {
                         marker = '*';
                     }
-
                     line += marker;
-          
                 }
                 line += "*";
-                lines[x] = line;
+                lines[nextpos++] = line;
+                lines[nextpos] = topline;
             }
 
             //foreach er en forlykke der løber alle variable af en type igennem i et array, hvor man ikke 
@@ -64,6 +67,38 @@ namespace OOP1
             {
                 Debug.WriteLine(line);
             }
+            
+
+            #endregion
+
+            #region kryptering 
+
+            int positionsskift = 3; 
+            string alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ1234567890";
+
+            //eksempel på at bruge en string i et array
+            string hilsen = "hello";
+            bool makeBig = false;
+            string bigHello = "";
+
+            StringBuilder result = new StringBuilder(); 
+            for (var i = 0; i < hilsen.Length; i++)
+            {
+                 
+                Debug.WriteLine("makebig: " + makeBig);
+                if (makeBig)
+                {
+                    result.Append(Char.ToUpper(hilsen[i]));
+                }
+                else
+                {
+                    result.Append(Char.ToLower(hilsen[i]));
+                }
+
+                makeBig = !makeBig; //laver lige makebig til det modsatte af det nuværende
+            }
+
+            Debug.WriteLine("hilsen: " + result);
 
             #endregion
 
