@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             //Dette er branch for loops og de eksempler som dertil kommer
-
+            #region startkode
             //Whack that hero
             int health = 55;
             int enemydamage = 8;
@@ -33,6 +33,8 @@
             {
                 Console.Write(“Hah! Puny hero, hits like a bunny!”); //implement game over
             }
+
+            #endregion
 
             #region while løkke
             //Der bliver angrebet hvis betingelsen er opfyldt
@@ -78,7 +80,7 @@
             }
 
             Console.WriteLine("***************************************************");
-            Console.WriteLine("*The hero receives " + totaldamage + " damage *");
+            Console.WriteLine("*  The hero receives " + totaldamage + "  damage  *");
             Console.WriteLine("***************************************************");
             #endregion
 
@@ -112,6 +114,7 @@
             } while (!gamecomplete);
 
             #endregion
+
 
         }
     }
