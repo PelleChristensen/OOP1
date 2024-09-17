@@ -7,9 +7,9 @@ namespace OOP1
     {
         static void Main(string[] args)
         {
-
+            /*
             #region ugedageogkaffe
-            int[] ugedage = { 5, 4, 3, 1, 6, 4, 4 };
+            int[] ugedage = { 5, 4, 3, 5, 6, 6, 4 };
             int total = 0; 
 
             //vi anvender længden af arrayet 'ugedage' til at 
@@ -22,27 +22,28 @@ namespace OOP1
 
             Debug.WriteLine($"Du drak {gennemsnit} kopper kaffe per dag");
             #endregion
+            */
+
 
             #region minefield
             
             int length = 5;
             int height = 5;
             float[,] minefield = new float[5, 5];
-
-            for(var x = 0; x < length; x++)
+            Random n = new Random();
+            for (int x = 0; x < length; x++)
             {
-                for(var y = 0; y < height; y++)
+                for(int y = 0; y < height; y++)
                 {
-                    Random n = new Random();
                     minefield[x, y] = float.Round(n.NextSingle(), 3);
-                    //Debug.WriteLine("X " + x + " Y " + y + " " + minefield[x, y]);
+                    //Console.WriteLine("X " + x + " Y " + y + " " + minefield[x, y]);
                 }
             }
 
-            string[] lines = new string[height +2];
+            List<string> lines = new List<string>();
             string topline = "*******";
-            int nextpos = 0; 
-            lines[nextpos++] = topline;
+
+            lines.Add(topline);
             
             for (var x = 0; x < length; x++)
             {
@@ -52,20 +53,21 @@ namespace OOP1
                     char marker = 'o';
                     if (minefield[x,y] <= 0.1f)
                     {
-                        marker = '*';
+                        marker = 'ø';
                     }
                     line += marker;
                 }
                 line += "*";
-                lines[nextpos++] = line;
-                lines[nextpos] = topline;
+                lines.Add(line);
+               
             }
+            lines.Add(topline);
 
             //foreach er en forlykke der løber alle variable af en type igennem i et array, hvor man ikke 
             //kender længde.... den giver dog mere mening ved lister
-            foreach(string line in lines)
+            foreach (string line in lines)
             {
-                Debug.WriteLine(line);
+                Console.WriteLine(line);
             }
             
 
