@@ -24,7 +24,18 @@ namespace OOP1
             #endregion
             */
 
+            List<int[]> liste = new List<int[]>();
 
+            int[] p = { 1, 2 };
+            int[] q = { 2, 3 };
+            liste.Add( p );
+
+            foreach (int[] item in liste)
+            {
+                Console.WriteLine("Item: " + item[0] + " " + item[1]);
+            }
+
+            return;
             #region minefield
             
             int length = 5;
