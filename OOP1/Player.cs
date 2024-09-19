@@ -10,7 +10,7 @@ namespace OOP1
     {
         //fields
         public string playername;
-        public int health;
+        private int health;
 
         public Player(string startingplayername, int startinghealth)
         {
@@ -22,7 +22,8 @@ namespace OOP1
         //offentligt tilgængelig, returnerer ingenting, tager en int som parameter
         public void UpdateHealth(int value)
         {
-            health += value; 
+            int disease = -2; 
+            health += value - disease; 
         }
         //tjek om player er død
         public bool IsDead()

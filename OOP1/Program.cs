@@ -9,6 +9,15 @@ namespace OOP1
     {
         static void Main(string[] args)
         {
+            Taske taske = new Taske(10);
+            taske.item = Taske.STUFF.MADPAKKE;
+
+            taske.AddItem(Taske.STUFF.SWORD);
+            taske.AddItem(Taske.STUFF.HEALINGPOTION);
+
+            taske.ListInventory();
+
+            return;
 
             Player hero = new Player("siegfried", 20);
             Player enemy = new Player("Fafnir", 50);
