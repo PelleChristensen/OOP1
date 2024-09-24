@@ -11,24 +11,26 @@ namespace OOP1
         //fields
         public string playername;
         private int health;
+        private int strength;
 
-        public Player(string startingplayername, int startinghealth)
+        public int Health { get => health; private set { health = value;  } }
+
+        public Player(string startingplayername, int startinghealth, int startingstrength = 10)
         {
             playername = startingplayername;
-            health = startinghealth; 
+            Health = startinghealth; 
         }
 
         //method
         //offentligt tilgængelig, returnerer ingenting, tager en int som parameter
         public void UpdateHealth(int value)
         {
-            int disease = -2; 
-            health += value - disease; 
+            Health += value; 
         }
         //tjek om player er død
         public bool IsDead()
         {
-            return health <= 0; 
+            return Health <= 0; 
         }
 
     }

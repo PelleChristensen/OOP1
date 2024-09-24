@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP1.containers;
+using System;
 using System.Diagnostics;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -9,17 +10,35 @@ namespace OOP1
     {
         static void Main(string[] args)
         {
-            Taske taske = new Taske(10);
-            taske.item = Taske.STUFF.MADPAKKE;
+            Backpack bp = new Backpack(10);
 
-            taske.AddItem(Taske.STUFF.SWORD);
-            taske.AddItem(Taske.STUFF.HEALINGPOTION);
+            Ration r = new Ration();
+            Ration r2 = new Ration();
+            Rope rope = new Rope(10); 
+            Wand w = new Wand();
 
-            taske.ListInventory();
+            bp.AddItem(r);
+            bp.AddItem(r2);
+            bp.AddItem(rope);
+            bp.AddItem(w);
+
+            Console.WriteLine("Rations in backpack:" + bp.CountItems(w)) ;
+
+            Player hero = new Player("siegfried", 20);
+
+            Console.WriteLine(hero.playername + " has " + hero.Health + " health");
+            
+            if(bp.CountItems(new Ration()) > 0)
+            {
+                Ration newration = bp.GetRation();
+                hero.UpdateHealth(newration.Energy);
+            }
+
+            Console.WriteLine(hero.playername + " has " + hero.Health + " health");
 
             return;
 
-            Player hero = new Player("siegfried", 20);
+            //Player hero = new Player("siegfried", 20);
             Player enemy = new Player("Fafnir", 50);
 
             Console.WriteLine(hero + " and " + enemy + " finally faced off!");

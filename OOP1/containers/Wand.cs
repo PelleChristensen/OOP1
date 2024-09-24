@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP1
+namespace OOP1.containers
 {
-    internal class Class1
+    internal class Wand : StorableItem
     {
     }
 }
